@@ -11,7 +11,7 @@ import cse.element.Value;
 public class Applicator {
     static final String[] binaryOps = {"+", "-", "/", "*", "**", "eq", "ne", "gr", "ge", "le",
             ">", "<", ">=", "<=", "or", "&", "aug", "ls"};
-    static final String[] unaryOps = {"Print", "Isstring", "Isinteger", "Istruthvalue",
+    static final String[] unaryOps = {"Print", "Isstring", "Isinteger", "Istruthvalue", "Isfunction", "Null",
             "Istuple", "Order", "Stern", "Stem", "ItoS", "neg", "not", "$ConcPartial"};
 
     /**
@@ -91,8 +91,12 @@ public class Applicator {
                 return isTruthValue(operand);
             case "Istuple":
                 return isTuple(operand);
+            case "Isfunction":
+                return isFunction(operand);
             case "Order":
                 return order(operand);
+            case "Null":
+                return isNull(operand);
             case "Stern":
                 return stern(operand);
             case "Stem":
@@ -290,6 +294,13 @@ public class Applicator {
     }
 
     /**
+     * @return Whether operand is a function/lambda node.
+     */
+    private Element isFunction(Element operand) {
+        return booleanCondition(operand.isLabel("lambda"));
+    }
+
+    /**
      * @return Number of elements in the tuple operand; len(operand)
      */
     private Element order(Element operand) {
@@ -298,6 +309,13 @@ public class Applicator {
             return new Value("int", Integer.toString(elements));
         }
         throw new RuntimeException("Order operation is only applicable for tuples");
+    }
+
+    /**
+     * @return true if tuple is nil, false otherwise
+     */
+    private Element isNull(Element operand) {
+        return  booleanCondition(operand.isLabel("nil"));
     }
 
     /**

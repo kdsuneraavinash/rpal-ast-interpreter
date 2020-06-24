@@ -22,6 +22,8 @@ public class Environment {
         remember("Isinteger", null);
         remember("Istruthvalue", null);
         remember("Istuple", null);
+        remember("Isfunction", null);
+        remember("Null", null);
         remember("Order", null);
         remember("Stern", null);
         remember("Stem", null);

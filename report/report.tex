@@ -193,7 +193,9 @@ Apart from that, there are other functions to perform the operator functionaliti
         \textbf{isInteger(operand)} & Check if integer \\
         \textbf{isTruthValue(operand)} & Check if true/false \\
         \textbf{isTuple(operand)} & Check if tuple \\
+        \textbf{isFunction(operand)} & Check if function \\
         \textbf{order(operand)} & Length of tuple \\
+        \textbf{Null(operand)} & Check if operand is nil \\
         \textbf{stern(operand)} & String without first character \\
         \textbf{stem(operand)} & First character \\
         \textbf{conc(operand)} & String concatenation (partial) \\
@@ -210,7 +212,7 @@ Apart from that, there are other functions to perform the operator functionaliti
         \textbf{le(operand)} & Less than or equal operator \\
         \textbf{aug(operand1, operand2)} & Append element to tuple \\
         \textbf{extract(operation, operand)} & Extract element from tuple \\
-    \end{tabular} \\
+    \end{tabular}\\
 
 \subsubsection{Operation Interfaces definitions}
 
@@ -218,7 +220,7 @@ Apart from that, there are other functions to perform the operator functionaliti
         \textbf{BinaryBooleanOperator} & Helper lambda closure of $(boolean, boolean) \rightarrow boolean$ \\
         \textbf{NumericalOperator} & Helper lambda closure of $(int, int) \rightarrow int$ \\
         \textbf{SubstringOperation} & Helper lambda closure of $(String) \rightarrow String$ \\
-    \end{tabular} \\
+    \end{tabular}\\
 
 \subsection{Machine class}
 
